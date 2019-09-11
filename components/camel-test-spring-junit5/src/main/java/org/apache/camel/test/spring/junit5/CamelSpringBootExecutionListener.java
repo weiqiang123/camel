@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.test.spring;
+package org.apache.camel.test.spring.junit5;
 
 import org.apache.camel.spring.SpringCamelContext;
 import org.slf4j.Logger;

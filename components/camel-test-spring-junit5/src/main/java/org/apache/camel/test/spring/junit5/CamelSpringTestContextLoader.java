@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.test.spring;
+package org.apache.camel.test.spring.junit5;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -38,7 +38,7 @@ import org.apache.camel.spi.PropertiesComponent;
 import org.apache.camel.spring.SpringCamelContext;
 import org.apache.camel.test.ExcludingPackageScanClassResolver;
 import org.apache.camel.test.junit4.CamelTestSupport;
-import org.apache.camel.test.spring.CamelSpringTestHelper.DoToSpringCamelContextsStrategy;
+import org.apache.camel.test.spring.junit5.CamelSpringTestHelper.DoToSpringCamelContextsStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -55,7 +55,7 @@ import org.springframework.test.context.support.AbstractGenericContextLoader;
 import org.springframework.test.context.support.GenericXmlContextLoader;
 import org.springframework.util.StringUtils;
 
-import static org.apache.camel.test.spring.CamelSpringTestHelper.getAllMethods;
+import static org.apache.camel.test.spring.junit5.CamelSpringTestHelper.getAllMethods;
 
 /**
  * Replacement for the default {@link GenericXmlContextLoader} that provides hooks for

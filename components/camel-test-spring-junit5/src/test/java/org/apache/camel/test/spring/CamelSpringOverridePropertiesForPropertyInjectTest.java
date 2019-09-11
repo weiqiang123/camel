@@ -20,6 +20,9 @@ import java.util.Properties;
 
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
+import org.apache.camel.test.spring.junit5.CamelSpringRunner;
+import org.apache.camel.test.spring.junit5.CamelTestContextBootstrapper;
+import org.apache.camel.test.spring.junit5.UseOverridePropertiesWithPropertiesComponent;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.annotation.DirtiesContext;

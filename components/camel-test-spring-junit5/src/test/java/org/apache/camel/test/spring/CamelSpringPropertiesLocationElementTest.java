@@ -24,6 +24,8 @@ import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.component.properties.PropertiesComponent;
+import org.apache.camel.test.spring.junit5.CamelSpringRunner;
+import org.apache.camel.test.spring.junit5.CamelTestContextBootstrapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

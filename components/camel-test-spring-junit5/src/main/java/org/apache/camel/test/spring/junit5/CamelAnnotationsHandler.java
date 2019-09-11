@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.test.spring;
+package org.apache.camel.test.spring.junit5;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -43,7 +43,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.annotation.AnnotationUtils;
 
-import static org.apache.camel.test.spring.CamelSpringTestHelper.getAllMethods;
+import static org.apache.camel.test.spring.junit5.CamelSpringTestHelper.getAllMethods;
 
 public final class CamelAnnotationsHandler {
 

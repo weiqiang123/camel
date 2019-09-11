@@ -18,6 +18,7 @@ package org.apache.camel.test.spring;
 
 import java.util.concurrent.TimeUnit;
 
+import org.apache.camel.test.spring.junit5.ShutdownTimeout;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 

@@ -19,7 +19,7 @@ package org.apache.camel.test.issues;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.RouteDefinition;
 import org.apache.camel.reifier.RouteReifier;
-import org.apache.camel.test.spring.CamelSpringTestSupport;
+import org.apache.camel.test.spring.junit5.CamelSpringTestSupport;
 import org.junit.Test;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

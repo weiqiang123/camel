@@ -20,7 +20,7 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.AdviceWithRouteBuilder;
 import org.apache.camel.reifier.RouteReifier;
-import org.apache.camel.test.spring.CamelSpringTestSupport;
+import org.apache.camel.test.spring.junit5.CamelSpringTestSupport;
 import org.junit.Test;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

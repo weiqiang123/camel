@@ -17,6 +17,8 @@
 package org.apache.camel.test.spring;
 
 import org.apache.camel.ServiceStatus;
+import org.apache.camel.test.spring.junit5.StopWatchTestExecutionListener;
+import org.apache.camel.test.spring.junit5.UseAdviceWith;
 import org.apache.camel.util.StopWatch;
 import org.junit.Before;
 import org.junit.Test;

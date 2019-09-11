@@ -17,6 +17,7 @@
 package org.apache.camel.test.spring;
 
 import org.apache.camel.management.JmxManagementStrategy;
+import org.apache.camel.test.spring.junit5.DisableJmx;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

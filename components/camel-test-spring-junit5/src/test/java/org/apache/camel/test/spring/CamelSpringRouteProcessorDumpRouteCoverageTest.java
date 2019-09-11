@@ -20,6 +20,7 @@ import java.io.File;
 
 import org.apache.camel.management.JmxManagementStrategy;
 import org.apache.camel.test.junit4.TestSupport;
+import org.apache.camel.test.spring.junit5.EnableRouteCoverage;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
