@@ -25,6 +25,6 @@ public class TestRouteBuilder extends RouteBuilder {
         
         from("direct:z")
             .routeId("excludedRoute")
-            .to("log:org.apache.camel.test.junit4.spring");
+            .to("log:org.apache.camel.test.spring.junit5");
     }
 }

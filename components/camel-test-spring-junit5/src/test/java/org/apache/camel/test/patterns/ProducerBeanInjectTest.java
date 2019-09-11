@@ -16,19 +16,21 @@
  */
 package org.apache.camel.test.patterns;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class ProducerBeanInjectTest extends Assert {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+public class ProducerBeanInjectTest {
 
     @Test
     public void checkProducerBeanInjection() {
         AbstractApplicationContext applicationContext = createApplicationContext();
         MyProduceBean bean = applicationContext.getBean("myProduceBean", MyProduceBean.class);
-        assertNotNull("The producerTemplate should not be null.", bean.getProducerTemplate());
-        assertEquals("Get a wrong response", "Camel rocks!", bean.getProducerTemplate().requestBody("Camel"));
+        assertNotNull(bean.getProducerTemplate(), "The producerTemplate should not be null.");
+        assertEquals("Camel rocks!", bean.getProducerTemplate().requestBody("Camel"), "Get a wrong response");
     }
 
     protected AbstractApplicationContext createApplicationContext() {

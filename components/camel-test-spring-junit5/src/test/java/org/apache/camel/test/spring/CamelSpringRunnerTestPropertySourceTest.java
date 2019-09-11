@@ -20,16 +20,12 @@ import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.component.mock.MockEndpoint;
-import org.apache.camel.test.spring.junit5.CamelSpringRunner;
-import org.apache.camel.test.spring.junit5.CamelTestContextBootstrapper;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.BootstrapWith;
+import org.apache.camel.test.spring.junit5.CamelSpringTest;
+import org.junit.jupiter.api.Test;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 
-@RunWith(CamelSpringRunner.class)
-@BootstrapWith(CamelTestContextBootstrapper.class)
+@CamelSpringTest
 @ContextConfiguration
 @TestPropertySource(properties = "fixedBody=Camel")
 public class CamelSpringRunnerTestPropertySourceTest {

@@ -20,17 +20,17 @@ import org.apache.camel.ServiceStatus;
 import org.apache.camel.test.spring.junit5.StopWatchTestExecutionListener;
 import org.apache.camel.test.spring.junit5.UseAdviceWith;
 import org.apache.camel.util.StopWatch;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @UseAdviceWith
 public class CamelSpringRunnerUseAdviceWithTest extends CamelSpringRunnerPlainTest {
     
-    @Before
+    @BeforeEach
     public void testContextStarted() throws Exception {
         assertEquals(ServiceStatus.Stopped, camelContext.getStatus());
         camelContext.start();
@@ -46,7 +46,7 @@ public class CamelSpringRunnerUseAdviceWithTest extends CamelSpringRunnerPlainTe
         
         assertNotNull(stopWatch);
         long taken = stopWatch.taken();
-        assertTrue(taken + " > 0, but was: " + taken, taken > 0);
-        assertTrue(taken + " < 3000, but was: " + taken, taken < 3000);
+        assertTrue(taken > 0, taken + " > 0, but was: " + taken);
+        assertTrue(taken < 3000, taken + " < 3000, but was: " + taken);
     }
 }

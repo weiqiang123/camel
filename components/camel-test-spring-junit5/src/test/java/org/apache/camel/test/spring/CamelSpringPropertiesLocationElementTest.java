@@ -24,20 +24,16 @@ import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.component.properties.PropertiesComponent;
-import org.apache.camel.test.spring.junit5.CamelSpringRunner;
-import org.apache.camel.test.spring.junit5.CamelTestContextBootstrapper;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.apache.camel.test.spring.junit5.CamelSpringTest;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.BootstrapWith;
 import org.springframework.test.context.ContextConfiguration;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@RunWith(CamelSpringRunner.class)
-@BootstrapWith(CamelTestContextBootstrapper.class)
+@CamelSpringTest
 @ContextConfiguration()
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class CamelSpringPropertiesLocationElementTest {
@@ -55,12 +51,12 @@ public class CamelSpringPropertiesLocationElementTest {
         mock.expectedHeaderReceived("property-3", "property-value-3");
 
         PropertiesComponent pc = context.getComponent("properties", PropertiesComponent.class);
-        assertNotNull("Properties component not defined", pc);
+        assertNotNull(pc, "Properties component not defined");
 
         List<String> locations = pc.getLocations();
 
         assertNotNull(locations);
-        assertEquals("Properties locations", 4, locations.size());
+        assertEquals(4, locations.size(), "Properties locations");
 
         producer.sendBody("direct:start", null);
 

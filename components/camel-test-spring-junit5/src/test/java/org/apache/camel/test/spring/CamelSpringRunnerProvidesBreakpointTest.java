@@ -22,10 +22,11 @@ import org.apache.camel.Processor;
 import org.apache.camel.processor.interceptor.BreakpointSupport;
 import org.apache.camel.spi.Breakpoint;
 import org.apache.camel.test.spring.junit5.ProvidesBreakpoint;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CamelSpringRunnerProvidesBreakpointTest
         extends CamelSpringRunnerPlainTest {

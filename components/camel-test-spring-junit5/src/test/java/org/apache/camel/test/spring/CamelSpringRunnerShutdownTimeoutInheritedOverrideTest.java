@@ -19,8 +19,9 @@ package org.apache.camel.test.spring;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.test.spring.junit5.ShutdownTimeout;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ShutdownTimeout
 public class CamelSpringRunnerShutdownTimeoutInheritedOverrideTest

@@ -21,26 +21,33 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.apache.camel.CamelContext;
-import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.spring.SpringCamelContext;
 import org.apache.camel.test.ExcludingPackageScanClassResolver;
-import org.apache.camel.test.junit4.CamelTestSupport;
+import org.apache.camel.test.junit5.CamelTestSupport;
 import org.apache.camel.util.IOHelper;
 import org.apache.camel.util.ObjectHelper;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * Base test-class for classic Spring application such as standalone, web applications.
  * Do <tt>not</tt> use this class for Spring Boot testing, instead use <code>@RunWith(CamelSpringBootRunner.class)</code>.
  */
 public abstract class CamelSpringTestSupport extends CamelTestSupport {
+
     protected static ThreadLocal<AbstractApplicationContext> threadAppContext = new ThreadLocal<>();
     protected static Object lock = new Object();
-    
+
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSpringTestSupport.class);
+
     protected AbstractApplicationContext applicationContext;
     protected abstract AbstractApplicationContext createApplicationContext();
 
@@ -71,13 +78,13 @@ public abstract class CamelSpringTestSupport extends CamelTestSupport {
                 SpringCamelContext.setNoStart(false);
             }
         } else {
-            log.info("Skipping starting CamelContext as system property skipStartingCamelContext is set to be true.");
+            LOG.info("Skipping starting CamelContext as system property skipStartingCamelContext is set to be true.");
         }
     }
 
     private AbstractApplicationContext doCreateApplicationContext() {
         AbstractApplicationContext context = createApplicationContext();
-        assertNotNull("Should have created a valid Spring application context", context);
+        assertNotNull(context, "Should have created a valid Spring application context");
 
         String[] profiles = activeProfiles();
         if (profiles != null && profiles.length > 0) {
@@ -86,7 +93,7 @@ public abstract class CamelSpringTestSupport extends CamelTestSupport {
                 throw new IllegalStateException("Cannot active profiles: " + Arrays.asList(profiles) + " on active Spring application context: " + context
                     + ". The code in your createApplicationContext() method should be adjusted to create the application context with refresh = false as parameter");
             }
-            log.info("Spring activating profiles: {}", Arrays.asList(profiles));
+            LOG.info("Spring activating profiles: {}", Arrays.asList(profiles));
             context.getEnvironment().setActiveProfiles(profiles);
         }
 
@@ -99,7 +106,7 @@ public abstract class CamelSpringTestSupport extends CamelTestSupport {
     }
 
     @Override
-    @After
+    @AfterEach
     public void tearDown() throws Exception {
         super.tearDown();
 
@@ -177,7 +184,7 @@ public abstract class CamelSpringTestSupport extends CamelTestSupport {
      */
     public <T> T getMandatoryBean(Class<T> type, String name) {
         Object value = applicationContext.getBean(name);
-        assertNotNull("No spring bean found for name <" + name + ">", value);
+        assertNotNull(value, "No spring bean found for name <" + name + ">");
         if (type.isInstance(value)) {
             return type.cast(value);
         } else {

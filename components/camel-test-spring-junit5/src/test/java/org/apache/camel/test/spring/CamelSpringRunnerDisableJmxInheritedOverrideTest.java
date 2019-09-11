@@ -18,8 +18,9 @@ package org.apache.camel.test.spring;
 
 import org.apache.camel.impl.engine.DefaultManagementStrategy;
 import org.apache.camel.test.spring.junit5.DisableJmx;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisableJmx
 public class CamelSpringRunnerDisableJmxInheritedOverrideTest

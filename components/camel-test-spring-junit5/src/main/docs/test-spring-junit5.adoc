@@ -1,6 +1,6 @@
-= Test Spring
+= Test Spring JUnit5
 
-*Available since 2.10*
+*Available since 3.10*
 
 Allows to test Camel with Spring applications such as Spring XML files or Spring-Boot.
 
@@ -456,4 +456,24 @@ public class Foo {
 }
 ----
 
+== Migrating Camel Spring Tests from JUnit 4 to JUnit 5
+Find below some hints to help in migrating camel spring tests from JUnit 4 to JUnit 5.
 
+=== Referencing the Camel Test Spring JUnit5 library in your project
+Projects using `camel-test-spring` would need to use `camel-test-spring-junit5`. For instance, maven users would update their pom.xml file as below:
+----
+<dependency>
+  <groupId>org.apache.camel</groupId>
+  <artifactId>camel-test-spring-junit5</artifactId>
+  <scope>test</scope>
+</dependency>
+----
+
+Tips: It's possible to run JUnit4 & JUnit5 based camel spring tests side by side including the following dependencies `camel-test-spring`,
+`camel-test-spring-junit5` and `junit-vintage-engine`. This configuration allows to migrate a camel spring test at once.
+
+=== Typical migration steps linked to JUnit 5 support in Camel Spring Test
+* Migration steps linked to Camel Test Junit 5 itself should have been applied
+* Imports of `org.apache.camel.test.spring.\*` should be replaced with `org.apache.camel.test.spring.junit5.*`
+* Usage of `@RunWith(CamelSpringRunner.class)` should be replaced with `@CamelSpringTest`
+* Usage of `@BootstrapWith(CamelTestContextBootstrapper.class)` should be replaced with `@CamelSpringTest`

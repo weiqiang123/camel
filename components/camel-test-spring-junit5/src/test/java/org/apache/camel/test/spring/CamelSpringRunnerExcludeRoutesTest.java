@@ -17,9 +17,9 @@
 package org.apache.camel.test.spring;
 
 import org.apache.camel.test.spring.junit5.ExcludeRoutes;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @ExcludeRoutes(TestRouteBuilder.class)
 public class CamelSpringRunnerExcludeRoutesTest

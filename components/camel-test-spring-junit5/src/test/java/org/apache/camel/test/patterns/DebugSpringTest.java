@@ -21,13 +21,19 @@ import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.ProcessorDefinition;
 import org.apache.camel.test.spring.junit5.CamelSpringTestSupport;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class DebugSpringTest extends CamelSpringTestSupport {
+
+    private static final Logger LOG = LoggerFactory.getLogger(DebugSpringTest.class);
     private boolean debugged;
-    
+
     @Override
     public boolean isUseDebugger() {
         // must enable debugger
@@ -39,7 +45,7 @@ public class DebugSpringTest extends CamelSpringTestSupport {
                                ProcessorDefinition<?> definition, String id, String shortName) {
         // this method is invoked before we are about to enter the given processor
         // from your Java editor you can just add a breakpoint in the code line below
-        log.info("Before " + definition + " with body " + exchange.getIn().getBody());
+        LOG.info("Before " + definition + " with body " + exchange.getIn().getBody());
         debugged = true;
     }
 
@@ -55,7 +61,7 @@ public class DebugSpringTest extends CamelSpringTestSupport {
 
         // assert mocks
         assertMockEndpointsSatisfied();
-        assertTrue("The debugger is not called!", debugged);
+        assertTrue(debugged, "The debugger is not called!");
     }
 
     @Override

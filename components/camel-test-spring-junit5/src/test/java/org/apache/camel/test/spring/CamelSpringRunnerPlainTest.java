@@ -25,27 +25,24 @@ import org.apache.camel.ProducerTemplate;
 import org.apache.camel.ServiceStatus;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.impl.engine.DefaultManagementStrategy;
-import org.apache.camel.test.spring.junit5.CamelSpringRunner;
+import org.apache.camel.test.spring.junit5.CamelSpringTest;
 import org.apache.camel.test.spring.junit5.CamelTestContextBootstrapper;
 import org.apache.camel.test.spring.junit5.StopWatchTestExecutionListener;
 import org.apache.camel.util.StopWatch;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.BootstrapWith;
 import org.springframework.test.context.ContextConfiguration;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // tag::example[]
-@RunWith(CamelSpringRunner.class)
-// must tell Spring to bootstrap with Camel
-@BootstrapWith(CamelTestContextBootstrapper.class)
+@CamelSpringTest
 @ContextConfiguration()
 // Put here to prevent Spring context caching across tests and test methods since some tests inherit
 // from this test and therefore use the same Spring context.  Also because we want to reset the
