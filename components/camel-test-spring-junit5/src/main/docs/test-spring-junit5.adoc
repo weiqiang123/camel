@@ -2,7 +2,7 @@
 
 *Available since 3.0*
 
-The `camel-test-spring-junit5` module makes it possible to test Camel Spring based application with JUnit 5.
+The `camel-test-spring-junit5` module makes it possible to test Camel Spring based applications with JUnit 5.
 
 Testing is a crucial part of any development or integration work. The Spring Framework offers a number of features that makes it easy to test while using Spring for Inversion of Control.
 
@@ -133,8 +133,8 @@ Projects using `camel-test-spring` would need to use `camel-test-spring-junit5`.
 Tips: It's possible to run JUnit 4 & JUnit 5 based Camel Spring tests side by side including the following dependencies `camel-test-spring`,
 `camel-test-spring-junit5` and `junit-vintage-engine`. This configuration allows to migrate a Camel Spring test at once.
 
-=== Typical migration steps linked to JUnit 5 support in Camel Spring Test
-* Migration steps linked to Camel Test Junit 5 itself should have been applied first
+=== Typical migration steps linked to JUnit 5 support in Camel Test Spring
+* Migration steps linked to JUnit 5 support in Camel Test itself should have been applied first
 * Imports of `org.apache.camel.test.spring.\*` should be replaced with `org.apache.camel.test.spring.junit5.*`
 * Usage of `@RunWith(CamelSpringRunner.class)` should be replaced with `@CamelSpringTest`
 * Usage of `@BootstrapWith(CamelTestContextBootstrapper.class)` should be replaced with `@CamelSpringTest`
