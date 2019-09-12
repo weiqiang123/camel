@@ -21,8 +21,7 @@ import org.apache.camel.builder.RouteBuilder;
 public class TestRouteBuilder extends RouteBuilder {
 
     @Override
-    public void configure() throws Exception {
-        
+    public void configure() {
         from("direct:z")
             .routeId("excludedRoute")
             .to("log:org.apache.camel.test.spring.junit5");

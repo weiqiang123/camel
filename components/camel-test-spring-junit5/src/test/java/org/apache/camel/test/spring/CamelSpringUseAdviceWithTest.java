@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @UseAdviceWith
 public class CamelSpringUseAdviceWithTest extends CamelSpringPlainTest {
-    
+
     @BeforeEach
     public void testContextStarted() throws Exception {
         assertEquals(ServiceStatus.Stopped, camelContext.getStatus());
@@ -38,12 +38,12 @@ public class CamelSpringUseAdviceWithTest extends CamelSpringPlainTest {
         // just sleep a little to simulate testing take a bit time
         Thread.sleep(1000);
     }
-    
+
     @Override
     @Test
     public void testStopwatch() {
         StopWatch stopWatch = StopWatchTestExecutionListener.getStopWatch();
-        
+
         assertNotNull(stopWatch);
         long taken = stopWatch.taken();
         assertTrue(taken > 0, taken + " > 0, but was: " + taken);

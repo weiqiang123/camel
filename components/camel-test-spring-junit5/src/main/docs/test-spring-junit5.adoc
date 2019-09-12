@@ -46,20 +46,20 @@ protected abstract AbstractApplicationContext createApplicationContext();
 Another approach involves the usage of the `org.apache.camel.test.spring.junit5.CamelSpringTest` annotation, for instance:
 ----
 @CamelSpringTest
-@ContextConfiguration()
+@ContextConfiguration
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 public class CamelSpringPlainTest {
 
     @Autowired
     protected CamelContext camelContext;
 
-    @EndpointInject(value = "mock:a")
+    @EndpointInject("mock:a")
     protected MockEndpoint mockA;
 
-    @EndpointInject(value = "mock:b")
+    @EndpointInject("mock:b")
     protected MockEndpoint mockB;
 
-    @Produce(value = "direct:start")
+    @Produce("direct:start")
     protected ProducerTemplate start;
 
     @Test

@@ -41,25 +41,25 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // tag::example[]
 @CamelSpringTest
-@ContextConfiguration()
+@ContextConfiguration
 // Put here to prevent Spring context caching across tests and test methods since some tests inherit
 // from this test and therefore use the same Spring context.  Also because we want to reset the
 // Camel context and mock endpoints between test methods automatically.
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 public class CamelSpringPlainTest {
-    
+
     @Autowired
     protected CamelContext camelContext;
-    
-    @EndpointInject(value = "mock:a")
+
+    @EndpointInject("mock:a")
     protected MockEndpoint mockA;
-    
-    @EndpointInject(value = "mock:b")
+
+    @EndpointInject("mock:b")
     protected MockEndpoint mockB;
-    
-    @Produce(value = "direct:start")
+
+    @Produce("direct:start")
     protected ProducerTemplate start;
-    
+
     @Test
     public void testPositive() throws Exception {
         assertEquals(ServiceStatus.Started, camelContext.getStatus());
@@ -71,18 +71,18 @@ public class CamelSpringPlainTest {
 
         MockEndpoint.assertIsSatisfied(camelContext);
     }
-    
+
     @Test
-    public void testJmx() throws Exception {
+    public void testJmx() {
         assertEquals(DefaultManagementStrategy.class, camelContext.getManagementStrategy().getClass());
     }
-    
+
     @Test
-    public void testShutdownTimeout() throws Exception {
+    public void testShutdownTimeout() {
         assertEquals(10, camelContext.getShutdownStrategy().getTimeout());
         assertEquals(TimeUnit.SECONDS, camelContext.getShutdownStrategy().getTimeUnit());
     }
-    
+
     @Test
     public void testStopwatch() {
         StopWatch stopWatch = StopWatchTestExecutionListener.getStopWatch();
@@ -90,19 +90,19 @@ public class CamelSpringPlainTest {
         assertNotNull(stopWatch);
         assertTrue(stopWatch.taken() < 100);
     }
-    
+
     @Test
     public void testExcludedRoute() {
         assertNotNull(camelContext.getRoute("excludedRoute"));
     }
-    
+
     @Test
     public void testProvidesBreakpoint() {
         assertNull(camelContext.getDebugger());
     }
 
     @Test
-    public void testRouteCoverage() throws Exception {
+    public void testRouteCoverage() {
         // noop
     }
 

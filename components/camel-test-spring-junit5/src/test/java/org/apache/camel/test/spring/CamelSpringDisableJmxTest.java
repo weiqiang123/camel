@@ -28,7 +28,7 @@ public class CamelSpringDisableJmxTest
 
     @Test
     @Override
-    public void testJmx() throws Exception {
+    public void testJmx() {
         assertEquals(JmxManagementStrategy.class, camelContext.getManagementStrategy().getClass());
     }
 }

@@ -29,7 +29,7 @@ public class CamelSpringShutdownTimeoutInheritedOverrideTest
 
     @Test
     @Override
-    public void testShutdownTimeout() throws Exception {
+    public void testShutdownTimeout() {
         assertEquals(10, camelContext.getShutdownStrategy().getTimeout());
         assertEquals(TimeUnit.SECONDS, camelContext.getShutdownStrategy().getTimeUnit());
     }

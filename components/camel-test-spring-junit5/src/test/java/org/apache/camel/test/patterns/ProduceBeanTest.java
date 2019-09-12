@@ -21,9 +21,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- *
- */
 public class ProduceBeanTest extends CamelSpringTestSupport {
 
     @Test

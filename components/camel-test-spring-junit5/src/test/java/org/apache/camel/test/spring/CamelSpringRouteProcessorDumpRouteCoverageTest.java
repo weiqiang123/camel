@@ -40,13 +40,13 @@ public class CamelSpringRouteProcessorDumpRouteCoverageTest extends CamelSpringP
     @Override
     @Test
     @Disabled("@TODO: This test passes standalone but fail when run among other. Fix in a dedicated commit.")
-    public void testJmx() throws Exception {
+    public void testJmx() {
         // JMX is enabled with route coverage
         assertEquals(JmxManagementStrategy.class, camelContext.getManagementStrategy().getClass());
     }
 
     @Override
-    public void testRouteCoverage() throws Exception {
+    public void testRouteCoverage() {
         camelContext.stop();
 
         // there should be files

@@ -20,9 +20,6 @@ import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 
-/**
- *
- */
 public class MyProduceBean {
 
     @Produce("mock:result")
@@ -34,7 +31,7 @@ public class MyProduceBean {
     public void doSomething(String body) {
         sender.send(body);
     }
-    
+
     public ProducerTemplate getProducerTemplate() {
         return template;
     }

@@ -16,9 +16,6 @@
  */
 package org.apache.camel.test.patterns;
 
-/**
- *
- */
 public interface MySender {
 
     void send(String body);

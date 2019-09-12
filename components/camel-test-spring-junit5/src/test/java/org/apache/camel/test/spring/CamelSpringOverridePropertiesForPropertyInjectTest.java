@@ -30,12 +30,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 @CamelSpringTest
-@ContextConfiguration()
+@ContextConfiguration
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class CamelSpringOverridePropertiesForPropertyInjectTest {
-    
+
     private static final String EXPECTED_PROPERTY_VALUE = "The value is overriden";
-    
+
     @Produce("direct:start-override-route")
     private ProducerTemplate start;
 
@@ -47,7 +47,7 @@ public class CamelSpringOverridePropertiesForPropertyInjectTest {
     }
 
     @Test
-    public void testOverride() throws Exception {
+    public void testOverride() {
         String response = start.requestBody((Object)"ignored", String.class);
 
         assertThat(response, is(EXPECTED_PROPERTY_VALUE));

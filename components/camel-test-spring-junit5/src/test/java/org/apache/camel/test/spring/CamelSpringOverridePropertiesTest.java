@@ -29,7 +29,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 
 @CamelSpringTest
-@ContextConfiguration()
+@ContextConfiguration
 // Put here to prevent Spring context caching across tests and test methods since some tests inherit
 // from this test and therefore use the same Spring context.  Also because we want to reset the
 // Camel context and mock endpoints between test methods automatically.

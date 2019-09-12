@@ -25,9 +25,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- *
- */
 public class AdviceWithOnExceptionMultipleIssueTest extends CamelSpringTestSupport {
 
     @Override

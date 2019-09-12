@@ -23,9 +23,9 @@ public class TestPropertyInjectRouteBuilder extends RouteBuilder {
 
     @PropertyInject("{{property.to.override}}")
     private String propertyToOverride;
-    
+
     @Override
-    public void configure() throws Exception {
+    public void configure() {
         from("direct:start-override-route")
             .transform(constant(propertyToOverride));
     }
