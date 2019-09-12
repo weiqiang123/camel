@@ -36,7 +36,7 @@ public class CamelSpringOverridePropertiesForPropertyInjectTest {
     
     private static final String EXPECTED_PROPERTY_VALUE = "The value is overriden";
     
-    @Produce(uri = "direct:start-override-route")
+    @Produce("direct:start-override-route")
     private ProducerTemplate start;
 
     @UseOverridePropertiesWithPropertiesComponent
