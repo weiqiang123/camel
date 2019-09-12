@@ -28,8 +28,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CamelSpringRunnerProvidesBreakpointTest
-        extends CamelSpringRunnerPlainTest {
+public class CamelSpringProvidesBreakpointTest
+        extends CamelSpringPlainTest {
 
     @ProvidesBreakpoint
     public static Breakpoint createBreakpoint() {

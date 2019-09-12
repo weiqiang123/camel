@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @UseAdviceWith
-public class CamelSpringRunnerUseAdviceWithTest extends CamelSpringRunnerPlainTest {
+public class CamelSpringUseAdviceWithTest extends CamelSpringPlainTest {
     
     @BeforeEach
     public void testContextStarted() throws Exception {

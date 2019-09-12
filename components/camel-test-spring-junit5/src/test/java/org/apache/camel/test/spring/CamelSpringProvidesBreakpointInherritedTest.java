@@ -16,21 +16,7 @@
  */
 package org.apache.camel.test.spring;
 
-import java.util.concurrent.TimeUnit;
+public class CamelSpringProvidesBreakpointInherritedTest
+        extends CamelSpringProvidesBreakpointTest {
 
-import org.apache.camel.test.spring.junit5.ShutdownTimeout;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-@ShutdownTimeout
-public class CamelSpringRunnerShutdownTimeoutInheritedOverrideTest
-        extends CamelSpringRunnerShutdownTimeoutTest {
-
-    @Test
-    @Override
-    public void testShutdownTimeout() throws Exception {
-        assertEquals(10, camelContext.getShutdownStrategy().getTimeout());
-        assertEquals(TimeUnit.SECONDS, camelContext.getShutdownStrategy().getTimeUnit());
-    }
 }

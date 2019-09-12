@@ -48,7 +48,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 // from this test and therefore use the same Spring context.  Also because we want to reset the
 // Camel context and mock endpoints between test methods automatically.
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
-public class CamelSpringRunnerPlainTest {
+public class CamelSpringPlainTest {
     
     @Autowired
     protected CamelContext camelContext;

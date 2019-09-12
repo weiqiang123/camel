@@ -16,32 +16,19 @@
  */
 package org.apache.camel.test.spring;
 
-import org.apache.camel.EndpointInject;
-import org.apache.camel.Produce;
-import org.apache.camel.ProducerTemplate;
-import org.apache.camel.component.mock.MockEndpoint;
-import org.apache.camel.test.spring.junit5.CamelSpringTest;
+import org.apache.camel.impl.engine.DefaultManagementStrategy;
+import org.apache.camel.test.spring.junit5.DisableJmx;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 
-@CamelSpringTest
-@ContextConfiguration
-@TestPropertySource(properties = "fixedBody=Camel")
-public class CamelSpringRunnerTestPropertySourceTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    @Produce("direct:in")
-    private ProducerTemplate start;
+@DisableJmx
+public class CamelSpringDisableJmxInheritedOverrideTest
+        extends CamelSpringDisableJmxTest {
 
-    @EndpointInject("mock:out")
-    private MockEndpoint end;
-
+    @Override
     @Test
-    public void readsFileAndInlinedPropertiesFromAnnotation() throws Exception {
-        end.expectedBodiesReceived("Camel");
-
-        start.sendBody("Aardvark");
-
-        end.assertIsSatisfied();
+    public void testJmx() throws Exception {
+        assertEquals(DefaultManagementStrategy.class, camelContext.getManagementStrategy().getClass());
     }
 }

@@ -24,8 +24,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ShutdownTimeout(value = 11, timeUnit = TimeUnit.MILLISECONDS)
-public class CamelSpringRunnerShutdownTimeoutTest
-        extends CamelSpringRunnerPlainTest {
+public class CamelSpringShutdownTimeoutTest
+        extends CamelSpringPlainTest {
 
     @Test
     @Override

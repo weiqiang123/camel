@@ -16,7 +16,21 @@
  */
 package org.apache.camel.test.spring;
 
-public class CamelSpringRunnerShutdownTimeoutInheritedTest
-        extends CamelSpringRunnerShutdownTimeoutTest {
+import java.util.concurrent.TimeUnit;
 
+import org.apache.camel.test.spring.junit5.ShutdownTimeout;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@ShutdownTimeout
+public class CamelSpringShutdownTimeoutInheritedOverrideTest
+        extends CamelSpringShutdownTimeoutTest {
+
+    @Test
+    @Override
+    public void testShutdownTimeout() throws Exception {
+        assertEquals(10, camelContext.getShutdownStrategy().getTimeout());
+        assertEquals(TimeUnit.SECONDS, camelContext.getShutdownStrategy().getTimeUnit());
+    }
 }

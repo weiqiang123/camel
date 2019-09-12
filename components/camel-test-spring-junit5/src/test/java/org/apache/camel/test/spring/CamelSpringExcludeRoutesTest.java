@@ -16,19 +16,18 @@
  */
 package org.apache.camel.test.spring;
 
-import org.apache.camel.management.JmxManagementStrategy;
-import org.apache.camel.test.spring.junit5.DisableJmx;
+import org.apache.camel.test.spring.junit5.ExcludeRoutes;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-@DisableJmx(false)
-public class CamelSpringRunnerDisableJmxTest
-        extends CamelSpringRunnerPlainTest {
+@ExcludeRoutes(TestRouteBuilder.class)
+public class CamelSpringExcludeRoutesTest
+        extends CamelSpringPlainTest {
 
-    @Test
     @Override
-    public void testJmx() throws Exception {
-        assertEquals(JmxManagementStrategy.class, camelContext.getManagementStrategy().getClass());
+    @Test
+    public void testExcludedRoute() {
+        assertNull(camelContext.getRoute("excludedRoute"));
     }
 }

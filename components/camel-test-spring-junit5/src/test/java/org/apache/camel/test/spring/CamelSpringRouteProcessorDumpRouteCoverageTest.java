@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @EnableRouteCoverage
-public class CamelSpringRouteProcessorDumpRouteCoverageTest extends CamelSpringRunnerPlainTest {
+public class CamelSpringRouteProcessorDumpRouteCoverageTest extends CamelSpringPlainTest {
 
     @BeforeAll
     public static void prepareFiles() throws Exception {
